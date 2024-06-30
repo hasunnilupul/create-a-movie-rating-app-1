@@ -35,6 +35,7 @@ const { id, name, description, image, rating, genres } = props.data;
                 <!-- Rating Stars -->
                 <div class="ml-2.5 flex flex-row space-x-0.5">
                     <StarIcon v-for="rate in rating" :key="rate" class="w-4 h-4 text-yellow-500" />
+                    <StarIcon v-for="rate in (5 - rating)" :key="rate" class="w-4 h-4 fill-white stroke-black" />
                 </div>
             </div>
         </div>
