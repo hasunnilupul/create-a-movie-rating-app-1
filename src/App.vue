@@ -1,12 +1,16 @@
 <script setup>
-import { items } from "./movies.json";
-/*
- This is an Icon that you can use to represent the stars if you like
- otherwise you could just use a simple ⭐️ emoji, or * character.
-*/
-// import { StarIcon } from "@heroicons/vue/24/solid";
+import { reactive } from "vue";
+
+import { items } from "@/movies.json";
+import MovieCard from "@/components/MovieCard.vue";
+
+const movies = reactive({ ...items });
 </script>
 
 <template>
-  <div></div>
+  <div class="flex h-screen w-screen items-center justify-center">
+    <div class="m-14 grid grid-cols-3 gap-2 md:gap-3">
+      <movie-card v-for="movie in movies" :key="movie.name" :data="movie" />
+    </div>
+  </div>
 </template>
